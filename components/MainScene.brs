@@ -3,7 +3,7 @@ sub init()
     m.status = m.top.findNode("statusLabel")
     m.urlLabel = m.top.findNode("urlLabel")
 
-    m.streamUrl = "http://192.168.1.65:5901/stream/swyh.flac?ss=u32maxnotchunked&bd=16"
+    m.streamUrl = "http://192.168.1.65:5901/stream/swyh.raw?ss=u32maxnotchunked&bd=16"
 
     m.urlLabel.text = m.streamUrl
     print "===== SWYH channel starting ====="
@@ -18,7 +18,7 @@ sub startStream()
     content = CreateObject("roSGNode", "ContentNode")
     content.url = m.streamUrl
     content.live = true
-    content.streamFormat = "flac"
+    content.streamFormat = "lpcm"
 
     m.audio.content = content
     m.audio.control = "play"
